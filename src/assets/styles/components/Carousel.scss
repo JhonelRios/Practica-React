@@ -1,0 +1,16 @@
+::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel {
+    overflow: scroll;
+    padding: 30px;
+    position: relative;
+    scrollbar-width: 0;
+}
+
+.carousel__container {
+    white-space: nowrap;
+    margin: 70px 0px;
+    padding-bottom: 10px;
+}
