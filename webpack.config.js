@@ -60,6 +60,9 @@ module.exports = {
             }
         ]
     },
+    devServer: {
+        historyApiFallback: true,
+    },
     // Se añaden los plugins que usaremos
     plugins: [
         // Creamos una nueva instancia del plugin importado
