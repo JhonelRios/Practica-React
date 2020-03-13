@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-
+import Header from '../components/Header';
 import Search from '../components/Search';
 import Categories from '../components/Categories';
 import Carousel from '../components/Carousel';
@@ -9,10 +9,21 @@ import useInitialState from '../hooks/useInitialState';
 
 import '../assets/styles/App.scss';
 
-const Home = ({ mylist, trends, originals }) => {
+const Home = ({ search, mylist, trends, originals }) => {
     return (
         <>
-            <Search />
+            <Header />
+            <Search isHome />
+
+            {search.length > 0 && (
+                <Categories title="Resultados">
+                    <Carousel>
+                        {search.map(item => (
+                            <CarouselItem key={item.id} {...item} />
+                        ))}
+                    </Carousel>
+                </Categories>
+            )}
 
             {mylist.length > 0 && (
                 <Categories title="Mi lista">
@@ -45,6 +56,7 @@ const Home = ({ mylist, trends, originals }) => {
 
 const mapStateToProps = state => {
     return {
+        search: state.search,
         mylist: state.mylist,
         trends: state.trends,
         originals: state.originals

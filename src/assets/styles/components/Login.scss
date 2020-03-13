@@ -1,5 +1,5 @@
 .login {
-    background: linear-gradient(#21c08b, #ab88ff);
+    background: linear-gradient(#21c08b, #8F57FD);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -47,6 +47,10 @@
     text-decoration: underline;
 }
 
+.login__container--social-media {
+    margin: 20px auto;
+}
+
 .login__container--social-media div {
     display: flex;
     align-items: center;
@@ -91,23 +95,23 @@
     text-decoration: underline;
 }
 
-// .input {
-//     background-color: transparent;
-//     border-left: 0px;
-//     border-right: 0px;
-//     border-top: 0px;
-//     border-bottom: 2px solid white;
-//     font-size: 16px;
-//     font-family: "Muli", sans-serif;
-//     margin-bottom: 20px;
-//     padding: 0px 20px;
-//     outline: none;
-//     height: 50px;
-// }
+.inputLoginForm {
+    background-color: transparent;
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px;
+    border-bottom: 2px solid white;
+    font-size: 16px;
+    font-family: "Muli", sans-serif;
+    margin-bottom: 20px;
+    padding: 0px 20px;
+    outline: none;
+    height: 50px;
+}
 
-// ::placeholder {
-//     color: white;
-// }
+::placeholder {
+    color: white;
+}
 
 // .button {
 //     background-color: rgba(255, 255, 255, 0.1);

@@ -1,19 +1,21 @@
 // Requerimos el modulo de path y el html-webpack-plugin que instalamos
-const path = require("path");
-const HtmlWebPackPlugin = require("html-webpack-plugin")
-const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const path = require('path');
+const HtmlWebPackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 // Creamos un modulo que vamos a exportar con la siguiente configuración
 module.exports = {
-    entry: "./src/index.js", // Iniciamos por la entrada del proyecto
-    output: { // Definimos donde vamos a guardar los archivos resultantes después de hacer el build
+    entry: './src/index.js', // Iniciamos por la entrada del proyecto
+    output: {
+        // Definimos donde vamos a guardar los archivos resultantes después de hacer el build
         // __dirname hace referencia al directorio actual y dist es una nueva carpeta que crearemos
-        path: path.resolve(__dirname, "dist"),
-        filename: "bundle.js" // El nombre del archivo resultante.
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'bundle.js', // El nombre del archivo resultante.
+        publicPath: '/'
     },
     resolve: {
         // Resuelve las extensiones que vamos a utilizar
-        extensions: [".js", ".jsx"]
+        extensions: ['.js', '.jsx']
     },
     // Modulo de reglas necesarias
     module: {
@@ -25,7 +27,7 @@ module.exports = {
                 exclude: /node_modules/,
                 // Usamos el babel-loader que habiamos instalado.
                 use: {
-                    loader: "babel-loader"
+                    loader: 'babel-loader'
                 }
             },
             {
@@ -33,7 +35,7 @@ module.exports = {
                 test: /\.html$/,
                 use: [
                     {
-                        loader: "html-loader"
+                        loader: 'html-loader'
                     }
                 ]
             },
@@ -41,19 +43,19 @@ module.exports = {
                 test: /\.(s*)css$/,
                 use: [
                     {
-                        loader: MiniCssExtractPlugin.loader,
+                        loader: MiniCssExtractPlugin.loader
                     },
-                    "css-loader",
-                    "sass-loader"
+                    'css-loader',
+                    'sass-loader'
                 ]
             },
             {
                 test: /\.(png|gif|jpg)$/,
                 use: [
                     {
-                        loader: "file-loader",
+                        loader: 'file-loader',
                         options: {
-                            name: "assets/[hash].[ext]"
+                            name: 'assets/[hash].[ext]'
                         }
                     }
                 ]
@@ -61,19 +63,19 @@ module.exports = {
         ]
     },
     devServer: {
-        historyApiFallback: true,
+        historyApiFallback: true
     },
     // Se añaden los plugins que usaremos
     plugins: [
         // Creamos una nueva instancia del plugin importado
         new HtmlWebPackPlugin({
             // Ubicación del template que usaremos
-            template: "./public/index.html",
+            template: './public/index.html',
             // El nombre que va a tener
-            filename: "./index.html"
+            filename: './index.html'
         }),
         new MiniCssExtractPlugin({
-            filename: "assets/[name].css"
+            filename: 'assets/[name].css'
         })
     ]
-}
+};
